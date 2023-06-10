@@ -1,6 +1,6 @@
 # PyPDF: Python-based PDF Analysis with LangChain
 
-`PyPDF` is a project that utilizes `LangChain` for learning and performing analysis on PDF documents. It uses a combination of tools such as `PyPDF`, `ChromeDB`, `OpenAI`, and `TikToken` to analyze, parse, and learn from the contents of PDF documents.
+`PyPDF` is a project that utilizes `LangChain` for learning and performing analysis on PDF documents. It uses a combination of tools such as `PyPDF`, `ChromaDB`, `OpenAI`, and `TikToken` to analyze, parse, and learn from the contents of PDF documents.
 
 ## Installation
 
@@ -9,7 +9,7 @@ Before you can use `PyPDF`, ensure you have the required dependencies installed.
 ```bash
 pip install langchain
 pip install pypdf
-pip install chromedb
+pip install chromadb
 pip install openai
 pip install tiktoken
 ```
