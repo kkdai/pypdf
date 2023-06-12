@@ -25,10 +25,15 @@ Please replace `"your_openai_api_key"` with your actual `OpenAI` API key.
 To get started with your first analysis, you'll need a PDF file. For this purpose, we will use the Bitcoin white paper, which you can download by running the following command in your terminal:
 
 ```bash
-curl -o paper.pdf https://bitcoin.org/bitcoin.pdf
+curl -o bitcoin.pdf https://bitcoin.org/bitcoin.pdf
 ```
 
 Once you've downloaded the PDF, you're ready to start using `PyPDF`!
+
+
+```bash
+readpdf bitcoin.pdf
+```
 
 ---
 
