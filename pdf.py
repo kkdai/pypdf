@@ -19,10 +19,16 @@ vectordb.persist()
 
 # 3. Querying
 llm = OpenAI(temperature=0.9, model_name="gpt-3.5-turbo")
-pdf_qa = ChatVectorDBChain.from_llm(llm,
-                                    vectordb, return_source_documents=True)
+pdf_qa = ChatVectorDBChain.from_llm(
+    llm, vectordb, return_source_documents=True)
 
 query = "What is the bitcoin?"
 result = pdf_qa({"question": query, "chat_history": ""})
 print("Answer:")
+print(result["answer"])
+
+chat_history = [(query, result["answer"])]
+query2 = "When it be found?"
+result = pdf_qa({"question": query2, "chat_history": chat_history})
+print("Answer2:")
 print(result["answer"])
