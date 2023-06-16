@@ -1,11 +1,11 @@
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferWindowMemory
 
 llm = ChatOpenAI(temperature=0.0)
 
-memory = (k=3)
+memory = ConversationBufferWindowMemory(k=3)
 conversation = ConversationChain(
     llm=llm,
     memory=memory,
