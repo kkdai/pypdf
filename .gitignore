@@ -131,3 +131,4 @@ dmypy.json
 index/
 chroma-collections.parquet
 chroma-embeddings.parquet
+.vscode/
