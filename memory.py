@@ -3,7 +3,7 @@ from langchain.memory import ConversationBufferWindowMemory
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 
-llm = ChatOpenAI(temperature=0.0)
+llm = ChatOpenAI(temperature=0.9, model='gpt-3.5-turbo')
 
 memory = ConversationBufferWindowMemory(k=3)
 conversation = ConversationChain(
@@ -12,9 +12,11 @@ conversation = ConversationChain(
     verbose=False
 )
 
+while True:
+    try:
+        question = input("Question: ")
+        ret = conversation.predict(input=question)
+        print("Answer: ", ret)
 
-conversation.predict(input="Hi, my name is Andrew")
-conversation.predict(input="What is 1+1?")
-conversation.predict(input="What is my name?")
-print(memory.buffer)
-memory.load_memory_variables({})
+    except KeyboardInterrupt:
+        break

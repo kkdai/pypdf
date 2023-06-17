@@ -3,17 +3,26 @@
 # pip install --upgrade --force-reinstall langchain
 
 import json
-from langchain.tools import MoveFileTool, DeleteFileTool, format_tool_to_openai_function
+from langchain.tools import MoveFileTool, format_tool_to_openai_function
+from langchain.chat_models import ChatOpenAI
+
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage
-from stock_tool import StockPriceTool
-
+# from stock_tool import StockPriceTool
+from poi import TravelPOITool
 
 model = ChatOpenAI(model="gpt-3.5-turbo-0613")
 
-# Prepare openai.functions
-tools = [StockPriceTool()]
+tools = [TravelPOITool()]
 functions = [format_tool_to_openai_function(t) for t in tools]
+print(functions[0])
+
+# tools = [StockPriceTool()]
+# functions = [format_tool_to_openai_function(t) for t in tools]
+
+# Prepare openai.functions
+# tools = [StockPriceTool()]
+# functions = [format_tool_to_openai_function(t) for t in tools]
 
 while True:
     try:
