@@ -1,4 +1,4 @@
-# Tools as OpenAI Functions
+# Stock Query Tools as OpenAI Functions
 # Make sure langchain to 0.0.200
 # pip install --upgrade --force-reinstall langchain
 
@@ -8,21 +8,11 @@ from langchain.chat_models import ChatOpenAI
 
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage
-# from stock_tool import StockPriceTool
-from poi import TravelPOITool
+from stock_tool import StockPriceTool
 
 model = ChatOpenAI(model="gpt-3.5-turbo-0613")
-
-tools = [TravelPOITool()]
+tools = [StockPriceTool()]
 functions = [format_tool_to_openai_function(t) for t in tools]
-print(functions[0])
-
-# tools = [StockPriceTool()]
-# functions = [format_tool_to_openai_function(t) for t in tools]
-
-# Prepare openai.functions
-# tools = [StockPriceTool()]
-# functions = [format_tool_to_openai_function(t) for t in tools]
 
 while True:
     try:
@@ -37,24 +27,3 @@ while True:
         print("Answer: ", tool_result)
     except KeyboardInterrupt:
         break
-
-
-# tools = [MoveFileTool()]
-# functions = [format_tool_to_openai_function(t) for t in tools]
-
-# message = model.predict_messages(
-#     [HumanMessage(content='move file foo to bar')], functions=functions)
-
-# print(message)
-
-# print(message.additional_kwargs['function_call'])
-
-# del_tools = [DeleteFileTool()]
-# del_functions = [format_tool_to_openai_function(t) for t in del_tools]
-
-# message = model.predict_messages(
-#     [HumanMessage(content='delete *.md from Document folder')], functions=del_functions)
-
-# print(message)
-
-# print(message.additional_kwargs['function_call'])
